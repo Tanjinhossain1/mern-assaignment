@@ -1,7 +1,7 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const UpdateModal = ({ updateDoctor,refetch }) => {
+const UpdateModal = ({ updateDoctor,setOpenModal }) => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const imageStoreKey = `dd6aa9e917ed30c4f9f495bf1f8866ee`;
 
@@ -25,7 +25,7 @@ const UpdateModal = ({ updateDoctor,refetch }) => {
                     const image = result.data.url;
                     const doctorDetail = { doctorName, doctorEmail, doctorNumber, image }
                     console.log(doctorDetail)
-                    fetch(`http://localhost:5000/updateDoctor/${updateDoctor._id}`,{
+                    fetch(`http://localhost:5000/updateDoctor/${updateDoctor}`,{
                         method: 'PUT',
                         headers:{
                             'content-type':'application/json'
@@ -35,8 +35,9 @@ const UpdateModal = ({ updateDoctor,refetch }) => {
                     .then(res=>res.json())
                     .then(updateDoctor=>{
                         console.log(updateDoctor)
-                        // refetch()
+                       
                         event.target.reset()
+                        setOpenModal(null)
                     })
                     
                 }

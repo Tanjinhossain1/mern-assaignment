@@ -15,6 +15,7 @@ const ShowDoctors = ({refetch,doctors}) => {
                             <th>Email</th>
                             <th>Number</th>
                             <th>Update</th>
+                            <th>Delete</th>
                         </tr>
                     </thead>
                     <tbody>

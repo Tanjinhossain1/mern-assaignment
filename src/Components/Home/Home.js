@@ -13,6 +13,7 @@ const Home = () => {
     if (isLoading) {
         return <LoadingSpinner color={'#781adb'} loading={isLoading} />
     }
+    refetch()
     return (
         <div>
             <div class="drawer drawer-mobile">
